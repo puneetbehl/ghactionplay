@@ -27,7 +27,7 @@ jobs:
         run: |
           cd ../groovy
           echo 'CI_GROOVY_VERSION<<EOF' >> $GITHUB_ENV
-          echo '3.0.7-SNAPSHOT' >> $GITHUB_ENV
+          echo "$(cat gradle.properties | grep groovyVersion | cut -d\= -f2 |  tr -d '[:space:]' >> $GITHUB_ENV)" >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: echo CI_GROOVY_VERSION
         id: step_five
