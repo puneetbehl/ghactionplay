@@ -12,15 +12,6 @@ jobs:
         java: [11.0.6]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Set the value
-        id: step_one
-        run: |
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          curl https://httpbin.org/json >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      - name: Print Val
-        id: step_two
-        run: echo $JSON_RESPONSE
       - name: Checkout Groovy 3_0_X
         id: step_three
         run: cd .. && git clone --depth 1 https://github.com/apache/groovy.git -b GROOVY_3_0_X
