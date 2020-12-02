@@ -19,14 +19,14 @@ jobs:
         id: step_two
         run: echo $JSON_RESPONSE
       - name: Checkout Groovy 3_0_X
-	    id: step_three
+        id: step_three
         run: cd .. && git clone --depth 1 https://github.com/apache/groovy.git -b GROOVY_3_0_X
       - name: Set CI_GROOVY_VERSION for Grails
-	    id: step_four
+        id: step_four
         run: |
           echo 'CI_GROOVY_VERSION<<EOF' >> $GITHUB_ENV
           cat gradle.properties | grep groovyVersion | cut -d\= -f2 |  tr -d '[:space:]' >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - name: echo CI_GROOVY_VERSION
-	    id: step_five
+        id: step_five
         run: echo $CI_GROOVY_VERSION
