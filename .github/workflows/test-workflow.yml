@@ -17,4 +17,4 @@ jobs:
           echo 'EOF' >> $GITHUB_ENV
       - name: Print Val
         id: step_two
-          run: echo $JSON_RESPONSE
+        run: echo $JSON_RESPONSE
