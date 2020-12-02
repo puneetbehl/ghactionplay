@@ -1,20 +1,20 @@
 name: "Test Github Actions Environment Variables"
 on:
-	push:
-		branches:
-			- master
+  push:
+    branches:
+      - master
 jobs:
-	build:
-		statergy:
-			fail-fast: true
-		runs-on: ubuntu-18.04
-		steps:
-		  - name: Set the value
-		    id: step_one
-		    run: |
-		        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-		        curl https://httpbin.org/json >> $GITHUB_ENV
-		        echo 'EOF' >> $GITHUB_ENV
-		  - name: Print Val 
-		    id: step_two
-			run: echo $JSON_RESPONSE
+  build:
+    statergy:
+      fail-fast: true
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Set the value
+        id: step_one
+        run: |
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+          curl https://httpbin.org/json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+      - name: Print Val
+        id: step_two
+          run: echo $JSON_RESPONSE
