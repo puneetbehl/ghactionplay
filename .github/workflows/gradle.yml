@@ -31,7 +31,9 @@ jobs:
         run: |
           [ -f ./setup.sh ] && ./setup.sh || true
       - name: Run Tests
-        run: ./gradlew check
+        run: |
+          ./gradlew check
+          ./gradlew docs
       - name: Publish Test Report
         uses: scacap/action-surefire-report@v1
         with:
@@ -47,4 +49,3 @@ jobs:
           FOLDER: build/docs
           COMMIT_EMAIL: behlp@objectcomputing.com
           COMMIT_NAME: Puneet Behl
-        run: ./gradlew docs
