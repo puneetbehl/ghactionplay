@@ -109,3 +109,7 @@ assets {
     minifyJs = true
     minifyCss = true
 }
+
+task docs(dependsOn:[javadoc, groovydoc]) {
+    group = "documentation"
+}
