@@ -44,7 +44,7 @@ jobs:
         uses: micronaut-projects/github-pages-deploy-action@master
         env:
           TARGET_REPOSITORY: grails/grails-gsp
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build/docs
           COMMIT_EMAIL: behlp@objectcomputing.com
