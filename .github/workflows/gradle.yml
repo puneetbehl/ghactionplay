@@ -15,6 +15,7 @@ jobs:
     env:
       WORKSPACE: ${{ github.workspace }}
       GRADLE_OPTS: -Xmx1500m -Dfile.encoding=UTF-8
+      GIT_USER_EMAIL: behlp@objectcomputing.com
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -47,5 +48,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build/docs
-          COMMIT_EMAIL: behlp@objectcomputing.com
+          COMMIT_EMAIL: ${{ env.GIT_USER_EMAIL }}
           COMMIT_NAME: Puneet Behl
