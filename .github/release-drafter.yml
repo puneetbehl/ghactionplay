@@ -9,6 +9,11 @@ categories:
     label: "dependencies"
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
+  ## Release Information
+
+  - [User Guide](https://../guide/index.html)
+  - [Github commits](https://github.com/)
+
   ## Changes
 
   $CHANGES
