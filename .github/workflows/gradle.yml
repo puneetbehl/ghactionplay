@@ -48,6 +48,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           DOC_FOLDER: gh-pages
+          DOC_SUB_FOLDER: ghactionplay
           FOLDER: build/docs
           COMMIT_EMAIL: ${{ env.GIT_USER_EMAIL }}
           COMMIT_NAME: Puneet Behl
