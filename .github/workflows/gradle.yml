@@ -42,7 +42,7 @@ jobs:
           report_paths: '**/build/test-results/test/TEST-*.xml'
       - name: Publish to Github Pages
         if: success() && github.event_name == 'push' && matrix.java == '8'
-        uses: micronaut-projects/github-pages-deploy-action@improveEntrypointScript
+        uses: puneetbehl/github-pages-deploy-action@grails
         env:
           TARGET_REPOSITORY: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
