@@ -42,11 +42,12 @@ jobs:
           report_paths: '**/build/test-results/test/TEST-*.xml'
       - name: Publish to Github Pages
         if: success() && github.event_name == 'push' && matrix.java == '8'
-        uses: micronaut-projects/github-pages-deploy-action@master
+        uses: micronaut-projects/github-pages-deploy-action@improveEntrypointScript
         env:
           TARGET_REPOSITORY: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
+          DOC_FOLDER: gh-pages
           FOLDER: build/docs
           COMMIT_EMAIL: ${{ env.GIT_USER_EMAIL }}
           COMMIT_NAME: Puneet Behl
