@@ -40,11 +40,19 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           report_paths: '**/build/test-results/test/TEST-*.xml'
+      - name: Determine docs target repository
+        uses: haya14busa/action-cond@v1
+        id: docs_target
+        with:
+          cond: ${{ github.repository == 'puneetbehl/ghactionplay' }}
+          if_true: "puneetbehl/testdocs"
+          if_false: ${{ github.repository }}
       - name: Publish to Github Pages
         if: success() && github.event_name == 'push' && matrix.java == '8'
         uses: puneetbehl/github-pages-deploy-action@grails
         env:
-          TARGET_REPOSITORY: ${{ github.repository }}
+          TARGET_REPOSITORY: ${{ steps.docs_target.outputs.value }}
+          CNAME: puneetbehl.github.io
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           DOC_FOLDER: gh-pages
