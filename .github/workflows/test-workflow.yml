@@ -33,4 +33,4 @@ jobs:
         id: step_five
         run: echo $CI_GROOVY_VERSION
       - name: Print Github metadata
-        run: println ${{ github }}
+        run: echo ${{ github }}
