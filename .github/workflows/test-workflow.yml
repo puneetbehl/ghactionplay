@@ -32,5 +32,7 @@ jobs:
       - name: echo CI_GROOVY_VERSION
         id: step_five
         run: echo $CI_GROOVY_VERSION
-      - name: Print Github metadata
-        run: echo ${{ github }}
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
