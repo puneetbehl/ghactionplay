@@ -45,7 +45,7 @@ jobs:
         id: docs_target
         with:
           cond: ${{ github.repository == 'puneetbehl/ghactionplay' }}
-          if_true: "puneetbehl/grails-kakfa-demo"
+          if_true: ${{ github.repository }}
           if_false: ${{ github.repository }}
       - name: Publish to Github Pages
         if: success() && github.event_name == 'push' && matrix.java == '8'
